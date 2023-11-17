@@ -21,6 +21,7 @@ namespace sqs_sample_dotnet
                         ServiceURL = "https://analytics-api.7senders.com"
                     };
 
+                    // Example for receiving messages
                     var client = new AmazonSQSClient(credentials, config);
 
                     var receiveMessageRequest = new ReceiveMessageRequest {
@@ -40,7 +41,7 @@ namespace sqs_sample_dotnet
                         Console.WriteLine("Message ID: " + message.MessageId);
                         Console.WriteLine(message.Body + "\n\n");
 
-                        // Delete the message
+                        // Example for deleting messages one by one
                         var deleteRequest = new DeleteMessageRequest
                         {
                             QueueUrl = "https://analytics-api.7senders.com/queue.xml",
@@ -51,7 +52,7 @@ namespace sqs_sample_dotnet
                         Console.WriteLine($"Message ID: {message.MessageId} deleted.\n");
                     }
 
-                    // Delete messages in batch
+                    // Example for deleting messages in batch
                     var entries = messages.Select(m => new DeleteMessageBatchRequestEntry
                     {
                         Id = m.MessageId,
