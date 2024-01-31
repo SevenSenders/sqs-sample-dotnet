@@ -61,7 +61,7 @@ namespace sqs_sample_dotnet
 
                     var deleteBatchRequest = new DeleteMessageBatchRequest
                     {
-                        QueueUrl = "https://analytics-api.7senders.com/queue.xml",
+                        QueueUrl = "https://sqs.sevensenders.com/api/v1/shipment-events",
                         Entries = entries
                     };
 
